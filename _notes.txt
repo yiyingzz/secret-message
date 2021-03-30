@@ -56,3 +56,4 @@ message.com /index.html/ ?color=red #value
 // References: 
 https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary
 https://erg.abdn.ac.uk/users/gorry/eg2069/ascii.html
+https://stackoverflow.com/questions/33854103/why-were-javascript-atob-and-btoa-named-like-that
