@@ -1,0 +1,58 @@
+// How our encryption will work:
+secret message  --> ASCII code (number code for each letter & some characters, 0-127)
+ASCII code --> 8-digit binary (binary representation of the number, using 0 & 1)
+8-digit binary --> join them all together into one long number (series of 0 & 1)
+one long number --> split into groups of 6
+each group of 6 --> base64 (which uses 6-digit binary) // (#)
+base64 code --> letters (base64 goes from 0-64, for letters & some characters)
+
+JS already has a handy function for doing this: 
+btoa()
+// binary to ASCII 
+// converts binary (*) to base64-encoded ASCII string
+
+& convert it back: 
+atob()
+// ASCII to binary 
+// converts base64-encoded ASCII string to binary (text)
+
+// (*) text to be converted must be in binary (????)
+
+- b/c computers operate using numbers/binary (0 & 1), they need a way to store letters & characters 
+- ASCII (American Standard Code for Information Interchange) is used
+- ASCII represents letters & characters with a set of numbers from 0-127
+- which means 128 letters & characters in total
+- these 128 ASCII codes can be represented in 8-digit binary
+
+// (#) when we convert it to base64, we use 6-digit binary 
+- this is because base64 goes from 0-63 (64 characters total)
+- the numbers 0-63 can be represented using only 6 digits in binary 
+- with 63 being 111111
+- meaning 64 is 1000000 (7 digits, b/c we already hit the max with 63)
+
+- so it's not that there are 2 systems of binary 
+- it's just that all the numbers in base64 can be represented with only 6 digits in binary 
+- whereas ASCII uses numbers above 63, so it requires more digits in binary to represent them
+- ASCII code 63 and base64 63 would both be 111111 (just converting number 63 into binary)
+
+
+// Parts of a url: 
+domain, path, query string, hash/fragment 
+message.com /index.html/ ?color=red #value
+
+- path can just be / if it's the root directory 
+- eg. yiying.ca/
+- ^ yiying.ca is the domain, / is the path
+
+- query string usually contains info we want to send to back-end server 
+- eg. ASP.NET query strings can pass data to back-end
+- eg. when making API calls, the query string contains our api key & search term
+
+- if we want to store info in the url that's only relevant to the browser & not the back-end server,
+- we store it in the hash
+- usually only info relevant to the user's browser
+
+
+// References: 
+https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary
+https://erg.abdn.ac.uk/users/gorry/eg2069/ascii.html
